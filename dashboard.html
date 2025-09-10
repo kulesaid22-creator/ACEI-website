@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ACEI Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f7f9fc; }
+    h1, h2 { text-align: center; }
+    .cards { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
+    .card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); text-align: center; width: 200px; }
+    canvas { max-width: 600px; margin: 40px auto; display: block; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 40px 0; }
+    .gallery img { width: 100%; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .video-container { display: flex; justify-content: center; margin: 40px 0; }
+    iframe { border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+  </style>
+</head>
+<body>
+  <h1>ACEI Dashboard</h1>
+
+  <!-- Stats Cards -->
+  <div class="cards">
+    <div class="card">
+      <h2>150</h2>
+      <p>Students Supported</p>
+    </div>
+    <div class="card">
+      <h2>25</h2>
+      <p>Women Groups</p>
+    </div>
+    <div class="card">
+      <h2>12</h2>
+      <p>Youth Trainings</p>
+    </div>
+  </div>
+
+  <!-- Bar Chart -->
+  <h2>Youth Trainings Over Years</h2>
+  <canvas id="barChart"></canvas>
+
+  <!-- Pie Chart -->
+  <h2>Budget Allocation</h2>
+  <canvas id="pieChart"></canvas>
+
+  <!-- Photos Gallery -->
+  <h2>Community Photos</h2>
+  <div class="gallery">
+    <img src="https://via.placeholder.com/400x250?text=School+Support" alt="School Program">
+    <img src="https://via.placeholder.com/400x250?text=Youth+Training" alt="Youth Training">
+    <img src="https://via.placeholder.com/400x250?text=Women+Empowerment" alt="Women Empowerment">
+  </div>
+
+  <!-- Video Section -->
+  <h2>Community Video</h2>
+  <div class="video-container">
+    <iframe width="560" height="315" 
+      src="https://www.youtube.com/embed/ysz5S6PUM-U" 
+      title="YouTube video player" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <script>
+    // Bar chart: Trainings per year
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: ['2022', '2023', '2024'],
+        datasets: [{
+          label: 'Youth Trainings',
+          data: [4, 6, 8],
+          backgroundColor: '#0b63d6'
+        }]
+      }
+    });
+
+    // Pie chart: Budget Allocation
+    new Chart(document.getElementById('pieChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Education', 'Women Empowerment', 'Youth Training'],
+        datasets: [{
+          data: [40, 30, 30],
+          backgroundColor: ['#0b63d6','#3aa0ff','#6dc9ff']
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
